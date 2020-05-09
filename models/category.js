@@ -6,16 +6,9 @@ const CategorySchema = new mongoose.Schema({
 });
 
 CategorySchema.set("toJSON", {
-  virtuals: true,
   transform: doc => {
     return _.pick(doc, ["id", "name"]);
   }
-});
-
-CategorySchema.virtual("products", {
-  ref: "Product",
-  localField: "_id",
-  foreignField: "catId"
 });
 
 const Category = mongoose.model("Category", CategorySchema);
