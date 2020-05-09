@@ -9,7 +9,6 @@ module.exports = async (req, res, next) => {
   } = req;
   const product = await Product.findById(productId);
   if (product.userId.toHexString() !== userId) {
-    //or (!post.userId.equals(userId))
     throw customError(403, "Not Allowed");
   }
   next();
