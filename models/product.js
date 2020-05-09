@@ -11,7 +11,7 @@ const productSchema = new mongoose.Schema({
   language: { type: String },
   imgUrl: { type: String },
   tags: [String],
-  catId: { type: mongoose.Types.ObjectId, ref: "Category" } //reset to true
+  catId: { type: mongoose.Types.ObjectId, ref: "Category" }
 });
 
 productSchema.set("toJSON", {

@@ -9,7 +9,6 @@ const ProductOwner = require("../middlewares/authorization");
 module.exports = router;
 
 router.post("/add", Authentication, async (req, res, next) => {
-  // const userId = req.user.id;
   const {
     userId,
     name,
@@ -86,44 +85,6 @@ router.get("/", async (req, res, next) => {
   res.json(products);
 });
 
-// router.get("/sortPrd", async (req, res, next) => {
-//   const allPrds = await Product.find();
-//   const sorted = _.orderBy(allPrds, ["name"]);
-//   res.json({ message: "success", sorted });
-// });
-// router.get("/search", async (req, res, next) => {
-//   const q = req.query;
-//   const products = await Product.find();
-//   const searchResult = products.filter(p =>
-//     p.name.toLowerCase().includes(.toLowerCase())
-//   );
-//   res.json({ message: "search Result", searchResult });
-// });
-// router.get("/:id", async (req, res, next) => {
-//   const id = req.params.id;
-//   const product = await Product.findById(id)
-//     .populate("user", "username")
-//     .populate("category");
-//   res.json(product);
-// });
-
-// router.get("/filter/:catId", async (req, res, next) => {
-//   const { catId } = req.params;
-//   const all = await Product.find();
-//   const filtered = all.filter(p => p.catId == catId);
-//   res.json({ prdFiltered: filtered });
-// });
-
-// router.get("/paging/:prdsPerPage/:currentPage", async (req, res, next) => {
-//   const { prdsPerPage, currentPage } = req.params;
-//   const startIndex = (currentPage - 1) * prdsPerPage;
-//   const products = await Product.find();
-//   const page = _(products)
-//     .slice(startIndex)
-//     .take(prdsPerPage)
-//     .value();
-//   res.json({ message: "page content returned successfully", page: page });
-// });
 router.get("/SSFP", async (req, res, next) => {
   let { search, cat, sort, page = true, currPage = 1, items = 5 } = req.query;
   let products = [];
